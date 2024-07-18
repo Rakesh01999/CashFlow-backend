@@ -10,7 +10,7 @@ const bcrypt = require('bcryptjs');
 
 app.use(cors({
    origin: [
-     'http://localhost:5173',
+     'http://localhost:5173','https://money--wave.web.app', 'https://money--wave.firebaseapp.com'
    ],
    credentials: true
 }));
@@ -30,7 +30,7 @@ const client = new MongoClient(uri, {
 
 const cookieOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.NODE_ENV === "production" ? true : false ,
     sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
 };
 
